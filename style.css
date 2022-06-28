@@ -1,311 +1,141 @@
-/* Google Font Import - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-:root{
-    /* ===== Colors ===== */
-    --body-color: #E4E9F7;
-    --sidebar-color: #363740;
-    --primary-color: #9FA2B4;
-    
-    --toggle-color: #DDD;
-    --text-color: #707070;
-
-    /* ====== Transition ====== */
-    --tran-03: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.3s ease;
-    --tran-05: all 0.3s ease;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body{
-    min-height: 100vh;
-    background-color: var(--body-color);
-    transition: var(--tran-05);
-}
-
-::selection{
-    background-color: var(--primary-color);
-    color: #fff;
+  background: #fff;
 }
 
 
-
-/* ===== Sidebar ===== */
- .sidebar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    padding: 10px 14px;
-    background: var(--sidebar-color);
-    transition: var(--tran-05);
-    z-index: 100;  
-}
-.sidebar.close{
-    width: 88px;
+.wrapper .header .header-menu ul{
+  display: flex;
 }
 
-/* ===== Reusable code - Here ===== */
-.sidebar li{
-    height: 50px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+
+.wrapper .sidebar{
+  z-index: 1;
+  background: #363740;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  transition: 0.3s;
+  transition-property: width;
+  overflow-y: auto;
 }
 
-.sidebar header .image,
-.sidebar .icon{
-    min-width: 60px;
-    border-radius: 6px;
+.wrapper .sidebar .sidebar-menu{
+  overflow: hidden;
 }
 
-.sidebar .icon{
-    min-width: 60px;
-    border-radius: 6px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
+
+.wrapper .sidebar .sidebar-menu .profile p{
+  color: #bbb;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.sidebar .text,
-.sidebar .icon{
-    color: var(--text-color);
-    transition: var(--tran-03);
+.wrapper .sidebar .sidebar-menu .item{
+  width: 250px;
+  overflow: hidden;
 }
 
-.sidebar .text{
-    font-size: 17px;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 1;
-}
-.sidebar.close .text{
-    opacity: 0;
-}
-/* =========================== */
-
-.sidebar header{
-    position: relative;
+.wrapper .sidebar .sidebar-menu .item .menu-btn{
+  display: block;
+  color: #A4A6B3;
+  position: relative;
+  padding: 20px 20px;
+  transition: 0.3s;
+  transition-property: color;
 }
 
-.sidebar header .image-text{
-    display: flex;
-    align-items: center;
-}
-.sidebar header .logo-text{
-    display: flex;
-    flex-direction: column;
-}
-header .image-text .name {
-    margin-top: 2px;
-    font-size: 18px;
-    font-weight: 600;
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn i{
+  margin-right: 20px;
+  color: #62636E;
 }
 
-header .image-text .profession{
-    font-size: 16px;
-    margin-top: -2px;
-    display: block;
+.wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
+  float: right;
+  font-size: 12px;
+  margin-top: 3px;
 }
 
-.sidebar header .image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.wrapper .sidebar .sidebar-menu .item .sub-menu{
+  background: #282930;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s;
+  transition-property: background, max-height;
 }
 
-.sidebar header .image img{
-    width: 40px;
-    border-radius: 6px;
-}
-/* slidebar */
-
-.sidebar header .toggle{
-    position: absolute;
-    top: 700px;
-    right: -2px;
-    transform: translateY(-50%) rotate(180deg);
-    height: 25px;
-    width: 25px;
-    
-    color: black;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    cursor: pointer;
-    transition: var(--tran-05);
-    z-index: 100;
+.wrapper .sidebar .sidebar-menu .item .sub-menu a{
+  display: block;
+  position: relative;
+  color: #A4A6B3;
+  
+  white-space: nowrap;
+  font-size: 15px;
+  padding: 15px 0 15px 20px;
+  transition: 0.3s;
+  transition-property: background;
 }
 
-body.dark .sidebar header .toggle{
-    color: var(--text-color);
+
+
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu i{
+  padding-right: 20px;
+  font-size: 10px;
+  
 }
 
-.sidebar.close .toggle{
-    transform: translateY(-50%) rotate(0deg);
+.wrapper .sidebar .sidebar-menu .item:target .sub-menu{
+  max-height: 400px;
 }
 
-.sidebar .menu{
-    margin-top: 40px;
+.wrapper .main-container{
+  width: (100% - 250px);
+  margin-top: 70px;
+  margin-left: 250px;
+  padding: 15px;
+  background: url(background.jpg)no-repeat;
+  background-size: cover;
+  height: 10px;
+  transition: 0.3s;
 }
 
-.sidebar li.search-box{
-    border-radius: 6px;
-    background-color: var(--primary-color-light);
-    cursor: pointer;
-    transition: var(--tran-05);
+.wrapper.collapse .sidebar{
+  width: 70px;
 }
 
-.sidebar li.search-box input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    background-color: var(--primary-color-light);
-    color: var(--text-color);
-    border-radius: 6px;
-    font-size: 17px;
-    font-weight: 500;
-    transition: var(--tran-05);
-}
-.sidebar li a{
-    list-style: none;
-    height: 100%;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: var(--tran-03);
+.wrapper.collapse .sidebar .profile img,
+.wrapper.collapse .sidebar .profile p,
+.wrapper.collapse .sidebar a span{
+  display: none;
 }
 
-.sidebar li a:hover{
-    background-color: var(--primary-color);
-}
-.sidebar li a:hover .icon,
-.sidebar li a:hover .text{
-    color: var(--sidebar-color);
-}
-body.dark .sidebar li a:hover .icon,
-body.dark .sidebar li a:hover .text{
-    color: var(--text-color);
+.wrapper.collapse .sidebar .sidebar-menu .item .menu-btn{
+  font-size: 23px;
 }
 
-.sidebar .menu-bar{
-    height: calc(100% - 55px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-y: scroll;
-}
-.menu-bar::-webkit-scrollbar{
-    display: none;
-}
-.sidebar .menu-bar .sub-menu{
-    border-radius: 6px;
-    background-color: var(--primary-color-light);
-    position: relative;
-    transition: var(--tran-05);
+.wrapper.collapse .sidebar .sidebar-menu .item .sub-menu i{
+  font-size: 18px;
+  padding-left: 3px;
 }
 
-.menu-bar .mode .sun-moon{
-    height: 50px;
-    width: 60px;
+.wrapper.collapse .main-container{
+  width: calc(100% - 70px);
+  margin-left: 70px;
 }
 
-.mode .sun-moon i{
-    position: absolute;
-}
-.mode .sun-moon i.sun{
-    opacity: 0;
-}
-body.dark .mode .sun-moon i.sun{
-    opacity: 1;
-}
-body.dark .mode .sun-moon i.moon{
-    opacity: 0;
-}
-
-.menu-bar .bottom-content .toggle-switch{
-    position: absolute;
-    right: 0;
-    height: 100%;
-    min-width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.toggle-switch .switch{
-    position: relative;
-    height: 22px;
-    width: 40px;
-    border-radius: 25px;
-    background-color: var(--toggle-color);
-    transition: var(--tran-05);
-}
-
-.switch::before{
-    content: '';
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    background-color: var(--sidebar-color);
-    transition: var(--tran-04);
-}
-
-body.dark .switch::before{
-    left: 20px;
-}
-
-.home{
-    position: absolute;
-    top: 0;
-    top: 0;
-    left: 250px;
-    height: 100vh;
-    width: calc(100% - 250px);
-    background-color: var(--body-color);
-    transition: var(--tran-05);
-}
-.home .text{
-    font-size: 30px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 12px 60px;
-}
-
-.sidebar.close ~ .home{
-    left: 78px;
-    height: 100vh;
-    width: calc(100% - 78px);
-}
-body.dark .home .text{
-    color: var(--text-color);
-}
-.sub-menu {
-    height: calc(100% - 55px);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
+.wrapper .main-container .card{
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }

@@ -1,136 +1,423 @@
-<!-- Coding by CodingLab | www.codinglabweb.com -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <title>Dashboard Sidebar Menu</title> 
-</head>
-<body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="logo.png" alt="">
-                </span>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Sidebar Dashboard Template With Sub Menu</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+		<script src="https://kit.fontawesome.com/802c7b6deb.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<!--wrapper start-->
+		<div class="wrapper">
+			<!--header menu start-->
+			<div class="header">
+				<div class="header-menu">
+					
+					<div class="sidebar-btn">
+						<i class="fas fa-bars"></i>
+					</div>
+					
+				</div>
+			</div>
+			<!--sidebar start-->
+			<div class="sidebar">
+				<div class="sidebar-menu">
+					<li class="item" onclick="Dashboard()" style="margin:20px 0px 40px 0px;">
+						<a href="#" class="menu-btn" id="Dashboard">
+							<i class="fas fa-desktop"></i><span>Dashboard</span>
+						</a>
+					</li>
+					<li class="item" onclick="Overview()">
+						<a href="#" class="menu-btn" id="Overview" >
+							<i class="fa-solid fa-chart-pie" id="Overview-icon"></i><span>Overview</span>
+						</a>
+					</li>
+					<li class="item" id="Bookings" onclick="Bookings()">
+						<a href="#Bookings" class="menu-btn" id="Bookings-a">
+							<i class="fa-solid fa-pipe" id="Bookings-a-icon" ></i></br>
+							<i class="fa-solid fa-ticket" id="Bookings-icon"></i><span>Bookings </i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><span>All Orders</span></a>
+							<a href="#"><span>Create order</span></a>
+						</div>
+					</li>
+					<li class="item" id="messages" onclick="Employment()">
+						<a href="#messages" id="Employment-a" class="menu-btn">
+							 <i id="Employment-icon" class="fa fa-group"></i><span>Employment </i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><span>Internship</span></a>
+							<a href="#"><span>Employee</span></a>
+						</div>
+					</li>
+					<li class="item" id="Users" onclick="User()">
+						<a href="#Users" class="menu-btn" id="User-a">
+							<i id="User-icon" class="fa-solid fa-user-tie"></i><span>Users </i></span>
+						</a>
+						<div class="sub-menu">
+							
+							<a href="#Customer" id="Customer">
+								<i class="fas fa-lock"></i><span>Customer</span>
+							</a>
+								<div class="sub-sub-menu">
+									<a href="#"><span>Onboard</span> </a>
+									<a href="#"><span>View / Edit</span></a>
+									<a href="#"><span>Block</span></a>
+								</div>
+							<a href="#"><i class="fas fa-language"></i><span>Partners</span></a>
+								<div class="sub-sub-menu">
+									<a href="#"><span>Onboard</span></a>
+									<a href="#"><span>View Profile</span></a>
+									<a href="#"><span>Block</span></a>
+								</div>
+							<a href="#"><span>Event Logs</span></a>
+								<div class="sub-sub-menu">
+									<a href="#"><span>Customer</span></a>
+									<a href="#"><span>Partner</span></a>
+									<a href="#"><span>Team</span></a>
+								</div>
+							<a href="#"><span>Location</span></a>
+								<div class="sub-sub-menu">
+									<a href="#"><span>Customer</span></a>
+									<a href="#"><span>Partner</span></a>
+									<a href="#"><span>Team</span></a>
+								</div>
+						</div>
+					</li>
+					<li class="item" id="Data" onclick="Application()">
+						<a href="#Data" class="menu-btn" id="Application-a">
+							<i id="Application-icon" class="fa-solid fa-book"></i></i><span>Application Data</i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><span>Images</span></a>
+							<a href="#"><span>Blog</span></a>
+						</div>
+					</li>
+					<li class="item" id="Services" onclick="services()">
+						<a href="#Services" class="menu-btn" id="services-a">
+							<i id="services-icon" class="fa-solid fa-shapes"></i><span>Services Data</i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><span>Rates</span></a>
+							<a href="#"><span>Content</span></a>
+						</div>
+					</li>
+					<li class="item" id="Revenue" onclick="Revenue()">
+						<a href="#Revenue" class="menu-btn" id="Revenue-a" >
+							<i id="Revenue-icon" class="fas fa-user-circle"></i><span>Revenue</i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><span>Earning</span></a>
+							<a href="#"><span>Expences</span></a>
+						</div>
+					</li>
 
-                <div class="text logo-text">
-                    <span class="name">Dashboard</span>
-                   
-                </div>
-            </div>
+					<li class="item" id="Offers" onclick="Offers()">
+						<a href="#Offers" class="menu-btn" id="Offers-a" >
+							<i id="Offers-icon" class="fa-solid fa-tag"></i><span>Offers & Promocodes</i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><span>View Promocodes</span></a>
+							<a href="#"><span>Create Promocodes</span></a>
+						</div>
+					</li>
+					<li class="item" id="Settings" onclick="Settings()">
+						<a href="#Settings" class="menu-btn" id="Settings-a" >
+							<i id="Settings-icon" class="fa-solid fa-gear"></i><span>Settings </i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><span>Users Access</span></a>
+							<a href="#"><span>Logout</span></a>
+						</div>
+					</li>
+				</div>
+			</div>
+			<!--sidebar end-->
+			<!--main container start-->
+		
+			<!--main container end-->
+		</div>
+		<!--wrapper end-->
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$(".sidebar-btn").click(function(){
+				$(".wrapper").toggleClass("collapse");
+			});
+		});
+		function Overview()
+		{
+			document.getElementsByClassName("item").style.color="#A4A6B3";
+			document.getElementBy("Overview-icon").style.color="";
 
-        <div class="menu-bar">
-            <div class="menu">
+			document.getElementById("Overview").style.color= "blue"
 
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
 
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Bookings</span>
-                        </a>
-                        <div class="sub-menu">
-                            <a href="#"><i class=""></i><span>All Order</span></a> </br>
-                            <a href="#"><i class=""></i><span>Create Order</span></a>
-                        </div>
-                    </li>
+		}
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text">Employment</span>
-                            
-                        </a>
-                        <div class="sub-menu">
-                            <a href="#"><i class=""></i><span>Internship</span></a> </br>
-                            <a href="#"><i class=""></i><span>Employee</span></a>
-                        </div>
-                        
-                    </li>
+		/*	document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">User</span>
-                        </a>
-                    </li>
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">Application Data</span>
-                        </a>
-                        <div class="sub-menu">
-                            <a href="#"><i class=""></i><span>Images</span></a> </br>
-                            <a href="#"><i class=""></i><span>Blog</span></a>
-                        </div>
-                    </li>
+			document.getElementById("User-a").style.color="#A4A6B3";
+			document.getElementById("User-icon").style.color="#A4A6B3";
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon' ></i>
-                            <span class="text nav-text">Services Data</span>
-                        
-                        </a>
-                        <div class="sub-menu">
-                            <a href="#"><i class=""></i><span>Rates</span></a> </br>
-                            <a href="#"><i class=""></i><span>Content</span></a>
-                        </div>
-                    </li>
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon' ></i>
-                            <span class="text nav-text">Revenue</span>
-                        </a>
-                        <div class="sub-menu">
-                            <a href="#"><i class=""></i><span>Earning</span></a> </br>
-                            <a href="#"><i class=""></i><span>Expences</span></a>
-                        </div>
-                    </li>
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-wallet icon' ></i>
-                            <span class="text nav-text">Offers & Promocodes</span>
-                        </a>
-                        <div class="sub-menu">
-                            <a href="#"><i class=""></i><span>View Promocodes</span></a> </br>
-                            <a href="#"><i class=""></i><span>Create Promocodes</span></a>
-                        </div>
-                    </li>
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
 
-                </ul>
-            </div>
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
 
-          
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
 
-               
-                
-            </div>
-        </div>
+		}
+		function Bookings(){
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
 
-    </nav>
+			document.getElementById("Bookings-a").style.color="#DDE2FF";
+			document.getElementById("Bookings-icon").style.color="#DDE2FF";
+		
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
+			
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
 
-    
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
 
-    <script src="script.js"></script>
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
 
-</body>
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
+
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
+
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
+		}
+		function Employment() {
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
+
+			document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
+		
+			document.getElementById("Employment-a").style.color="#DDE2FF";
+			document.getElementById("Employment-icon").style.color="#DDE2FF";
+
+			document.getElementById("User-a").style.color="#A4A6B3";
+			document.getElementById("User-icon").style.color="#A4A6B3";
+
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
+
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
+
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
+
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
+
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
+		}
+		function User() {
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
+
+			document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
+		
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
+
+			document.getElementById("User-a").style.color="#DDE2FF";
+			document.getElementById("User-icon").style.color="#DDE2FF";
+
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
+
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
+
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
+
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
+
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
+		}
+		function Application() {
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
+
+			document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
+		
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
+
+			document.getElementById("User-a").style.color="#A4A6B3";
+			document.getElementById("User-icon").style.color="#A4A6B3";
+
+			document.getElementById("Application-a").style.color="#DDE2FF";
+			document.getElementById("Application-icon").style.color="#DDE2FF";
+
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
+
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
+
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
+
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
+		}
+
+		function services() {
+
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
+
+			document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
+		
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
+
+			document.getElementById("User-a").style.color="#A4A6B3";
+			document.getElementById("User-icon").style.color="#A4A6B3";
+
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
+
+			document.getElementById("services-a").style.color="#DDE2FF";
+			document.getElementById("services-icon").style.color="#DDE2FF";
+
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
+
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
+
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
+		}
+
+		function Revenue() {
+
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
+
+			document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
+		
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
+
+			document.getElementById("User-a").style.color="#A4A6B3";
+			document.getElementById("User-icon").style.color="#A4A6B3";
+
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
+
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
+
+			document.getElementById("Revenue-a").style.color="#DDE2FF";
+			document.getElementById("Revenue-icon").style.color="#DDE2FF";
+
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
+
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
+		}
+
+		function Offers() {
+
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
+
+			document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
+		
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
+
+			document.getElementById("User-a").style.color="#A4A6B3";
+			document.getElementById("User-icon").style.color="#A4A6B3";
+
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
+
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
+
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
+
+			document.getElementById("Offers-a").style.color="#DDE2FF";
+			document.getElementById("Offers-icon").style.color="#DDE2FF";
+
+			document.getElementById("Settings-a").style.color="#A4A6B3";
+			document.getElementById("Settings-icon").style.color="#A4A6B3";
+		}
+
+		function Settings() {
+
+			document.getElementById("Overview").style.color="#A4A6B3";
+			document.getElementById("Overview-icon").style.color="#A4A6B3";
+
+			document.getElementById("Bookings-a").style.color="#A4A6B3";
+			document.getElementById("Bookings-icon").style.color="#A4A6B3";
+		
+			document.getElementById("Employment-a").style.color="#A4A6B3";
+			document.getElementById("Employment-icon").style.color="#A4A6B3";
+
+			document.getElementById("User-a").style.color="#A4A6B3";
+			document.getElementById("User-icon").style.color="#A4A6B3";
+
+			document.getElementById("Application-a").style.color="#A4A6B3";
+			document.getElementById("Application-icon").style.color="#A4A6B3";
+
+			document.getElementById("services-a").style.color="#A4A6B3";
+			document.getElementById("services-icon").style.color="#A4A6B3";
+
+			document.getElementById("Revenue-a").style.color="#A4A6B3";
+			document.getElementById("Revenue-icon").style.color="#A4A6B3";
+
+			document.getElementById("Offers-a").style.color="#A4A6B3";
+			document.getElementById("Offers-icon").style.color="#A4A6B3";
+
+			document.getElementById("Settings-a").style.color="#DDE2FF";
+			document.getElementById("Settings-icon").style.color="#DDE2FF";
+		}*/
+
+		</script>
+
+	</body>
 </html>
